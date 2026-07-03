@@ -1,0 +1,13 @@
+{
+  "criteria": {
+    "nope": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "loot": [
+      "loot_table_fixes_test:loot_table"
+    ],
+    "function": "loot_table_fixes_test:revoke"
+  }
+}
