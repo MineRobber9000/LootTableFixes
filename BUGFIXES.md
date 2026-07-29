@@ -104,3 +104,25 @@ I made `RandomizableContainer` track whoever had the container open, and then if
 - If there's multiple players with the chest open, use one of the players with the most Luck.
 
 [MC-184348]: https://bugs.mojang.com/browse/MC/issues/MC-184348
+
+### [MC-212671][]: "Loot table tag entry with "expand": true does not apply functions"
+Created: 1/23/2021, 7:23:51 PM  
+Updated: 4/26/2025, 3:20:32 PM  
+Resolved: Unresolved  
+Versions: 21w03a - present
+
+#### Bug
+
+When a loot entry uses the `tag` type with `expand` set to `true`, the functions on the `tag` entry aren't copied to the individual `item` entries.
+
+#### Why does it happen?
+
+The default behavior of `LootPoolSingletonContainer` wraps the `createItemStack` method of the `LootPoolSingletonContainer` (the base class of all of the loot pool entry types) in a `LootPoolEntry` object which applies the loot functions to the item stack.
+
+However, in the case of a `tag` entry (helpfully named `TagEntry`) with `expand` set to `true`, the subclass (named `TagEntry`) just returns the items from the tag, without applying the loot functions to them.
+
+#### How did I fix it?
+
+I used mixins and access wideners to replace the vanilla logic with a custom `LootPoolEntry` implementation which takes the tag entry and the item as parameters and properly applies the loot functions to the item.
+
+[MC-212671]: https://bugs.mojang.com/browse/MC/issues/MC-212671

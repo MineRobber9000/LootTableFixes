@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:tag",
+          "name": "minecraft:logs_that_burn",
+          "expand": true,
+          "weight": 1,
+          "functions": [
+            {
+              "function": "minecraft:set_name",
+              "name": "It works!",
+              "target": "custom_name"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

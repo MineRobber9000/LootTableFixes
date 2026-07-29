@@ -30,23 +30,3 @@ The reason why the nether star is hardcoded is because the game sets the nether 
 I'm not really sure what would be the best way to fix it. Should I make *all* items dropped by a Wither have extended life-time? Should I make it so just nether stars have extended life-time?
 
 [MC-149589]: https://bugs.mojang.com/browse/MC/issues/MC-149589
-
-### [MC-212671][]: "Loot table tag entry with "expand": true does not apply functions"
-Created: 1/23/2021, 7:23:51 PM  
-Updated: 4/26/2025, 3:20:32 PM  
-Resolved: Unresolved  
-Versions: 21w03a - present
-
-#### Bug
-
-When a loot entry uses the `tag` type with `expand` set to `true`, the functions on the `tag` entry aren't copied to the individual `item` entries.
-
-#### Why does it happen?
-
-I dunno, I want to sleep.
-
-#### Why isn't it fixed?
-
-Not sure why it happens yet.
-
-[MC-212671]: https://bugs.mojang.com/browse/MC/issues/MC-212671

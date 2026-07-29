@@ -6,9 +6,11 @@
 		"AdvancementRewardsMixin",
 		"BlockMixin",
 		"ContainerUserTrackerMixin",
+		"RandomizableContainerBlockEntityMixin",
 		"RandomizableContainerMixin",
-		"RandomizableContainerBlockEntityMixin"
+		"TagEntryMixin"
 	],
+	"accessWidener": "loot_table_fixes.classtweaker",
 	"injectors": {
 		"defaultRequire": 1
 	},
