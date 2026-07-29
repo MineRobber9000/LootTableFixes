@@ -3,8 +3,11 @@
 	"package": "io.github.minerobber9000.loottablefixes.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
+		"AdvancementRewardsMixin",
 		"BlockMixin",
-		"AdvancementRewardsMixin"
+		"ContainerUserTrackerMixin",
+		"RandomizableContainerMixin",
+		"RandomizableContainerBlockEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

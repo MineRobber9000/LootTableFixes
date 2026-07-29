@@ -79,3 +79,28 @@ The same reason MC-262347 happened; the luck needs to be passed in separately (a
 I used a mixin (¡qué sorpresa!) to add the player's luck to the `LootParams`. (I could have also added the player as `LootContextParams.ATTACKING_ENTITY` to add the ability to use Looting, but I actually kind of agree with Mojang on that not being supported.)
 
 [MC-120523]: https://bugs.mojang.com/browse/MC/issues/MC-120523
+
+### [MC-184348][]: "Luck attribute doesn't apply if loot table is changed while viewing container"
+Created: 5/17/2020, 10:12:56 PM  
+Updated: 11/12/2025, 3:23:38 PM  
+Resolved: Unresolved  
+Versions: 20w20b - Present
+
+#### Bug
+
+If a player opens a chest, and then the chest is given a `LootTable` via commands/some other method, the loot table resolves without the player's luck (and probably other attributes too).
+
+#### Why does it happen?
+
+It's the same root cause as the above bug where breaking a container didn't apply the player context; `RandomizableContainerBlockEntity` falls back to unpacking the loot table without a player if it needs to get items and the loot table isn't already unpacked. Chests, barrels and such do unpack the loot table with the player, but only once on open.
+
+As one user on Mojira pointed out, one reason this bug hasn't been fixed in Vanilla is likely because it's unclear how the situation of multiple players having a chest open should be solved.
+
+#### How did I fix it?
+
+I made `RandomizableContainer` track whoever had the container open, and then if a player isn't provided to `unpackLootTable`, it resolves the player as follows:
+
+- If there's only one player with the chest open, use them.
+- If there's multiple players with the chest open, use one of the players with the most Luck.
+
+[MC-184348]: https://bugs.mojang.com/browse/MC/issues/MC-184348
