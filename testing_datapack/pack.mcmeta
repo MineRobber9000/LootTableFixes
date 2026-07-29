@@ -2,6 +2,6 @@
 	"pack": {
 		"min_format": [88, 0],
 		"max_format": [107, 1],
-		"description": "Luck from block loot context"
+		"description": "Loot Table Fixes mod testing datapack"
 	}
 }
